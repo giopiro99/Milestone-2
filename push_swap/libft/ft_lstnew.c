@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 12:57:39 by gpirozzi          #+#    #+#             */
-/*   Updated: 2025/03/04 12:57:42 by gpirozzi         ###   ########.fr       */
+/*   Created: 2024/11/26 15:59:30 by gpirozzi          #+#    #+#             */
+/*   Updated: 2024/11/27 19:54:08 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **dst, t_stack **src)
+t_list	*ft_lstnew(void *content)
 {
-	t_stack	*push_node;
+	t_list	*node;
 
-	if (!src || !(*src))
-		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = *dst;
-	*dst = push_node;
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
-
-void	pa(t_stack **a, t_stack **b, int flag)
+/*int	main()
 {
-	push(a, b);
-	if (flag)
-		ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b, int flag)
-{
-	push(b, a);
-	if (flag)
-		ft_printf("pb\n");
-}
+	char	*content = "ciao";
+	t_list	*node = ft_lstnew((void *)content);
+	if (node)
+	{
+		printf("%s", (char *)node->content);
+		printf("%p", (void *)node->next);	
+	}
+}*/

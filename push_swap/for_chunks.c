@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   for_chunks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 16:37:13 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 18:01:26 by gnicolo          ###   ########.fr       */
+/*   Created: 2025/03/04 12:56:43 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/05 10:53:08 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	assign_chunk(t_stack *stack)
 	head = stack;
 	size_a = stack_len(stack);
 	if (size_a <= 100)
-		chunk_size = 20;
+		chunk_size = 25;
 	else
-		chunk_size = 39;
+		chunk_size = size_a / 5;
 	while (stack)
 	{
 		stack->chunk = stack->index / chunk_size;
@@ -75,7 +75,7 @@ int	move_chunks_to_b(t_stack **a, t_stack **b, int max_chunk)
 
 	tmp = NULL;
 	current_chunk = 0;
-	if (stack_len(*a) <= 3)
+	if (stack_len(*a) == 3)
 	{
 		sort_three(a);
 		return (3);
@@ -85,12 +85,12 @@ int	move_chunks_to_b(t_stack **a, t_stack **b, int max_chunk)
 		tmp = (*a);
 		if (tmp->chunk == current_chunk)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			if (*b && (*b)->next && (*b)->nbr < find_median(*b))
-				rb(b);
+				rb(b, 1);
 		}
 		else
-			ra(a);
+			ra(a, 1);
 		if (!has_chunk(*a, current_chunk))
 			current_chunk++;
 	}

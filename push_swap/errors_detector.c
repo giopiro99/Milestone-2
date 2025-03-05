@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 12:52:49 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/28 13:35:33 by gpirozzi         ###   ########.fr       */
+/*   Created: 2025/03/04 12:56:36 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/04 13:11:47 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void	free_errors(t_stack **a, int flag, char **argv)
 	free_stack(a);
 	if (flag == 1)
 		ft_clean_matrix(argv);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }

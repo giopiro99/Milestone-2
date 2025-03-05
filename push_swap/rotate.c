@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 15:20:31 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/18 12:54:12 by gnicolo          ###   ########.fr       */
+/*   Created: 2025/03/04 12:57:54 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/04 16:36:03 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ static void	rotate(t_stack **head)
 	last->next = first;
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int flag)
 {
 	rotate(a);
-	ft_printf("ra\n");
+	if (flag)
+		ft_printf("ra\n");
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int flag)
 {
 	rotate(b);
-	ft_printf("rb\n");
+	if (flag)
+		ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int flag)
 {
 	rotate(a);
 	rotate(b);
-	ft_printf("rr\n");
+	if (flag)
+		ft_printf("rr\n");
 }

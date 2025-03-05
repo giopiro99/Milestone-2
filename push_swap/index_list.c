@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 18:06:20 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 18:02:47 by gnicolo          ###   ########.fr       */
+/*   Created: 2025/03/04 12:56:58 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/04 12:57:00 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

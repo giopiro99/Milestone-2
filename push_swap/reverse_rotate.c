@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 12:53:56 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 18:01:45 by gnicolo          ###   ########.fr       */
+/*   Created: 2025/03/04 12:57:47 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/04 12:57:49 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,24 @@ static void	reverse_rotate(t_stack **head)
 	*head = last;
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int flag)
 {
 	reverse_rotate(a);
-	ft_printf("rra\n");
+	if (flag)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int flag)
 {
 	reverse_rotate(b);
-	ft_printf("rrb\n");
+	if (flag)
+		ft_printf("rrb\n");
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int flag)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	ft_printf("rrr\n");
+	if (flag)
+		ft_printf("rrr\n");
 }

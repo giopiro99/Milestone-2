@@ -5,26 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 15:16:58 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/28 12:37:14 by gpirozzi         ###   ########.fr       */
+/*   Created: 2025/03/04 12:57:11 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/05 10:45:23 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack *stack)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current)
-	{
-		ft_printf("numero corrente: %d\n", current->nbr);
-		ft_printf("indice del numero: %d\n", current->index);
-		current = current->next;
-	}
-	ft_printf("\n");
-}
 
 static void	ft_bank_data(t_stack **a, t_stack **tmp, char **numbers, int flags)
 {
@@ -32,6 +18,7 @@ static void	ft_bank_data(t_stack **a, t_stack **tmp, char **numbers, int flags)
 	{
 		init_stack_a(a, numbers, 1);
 		init_stack_a(tmp, numbers, 1);
+		ft_clean_matrix(numbers);
 	}
 	else
 	{
@@ -52,7 +39,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	tmp = NULL;
 	if (argc <= 1)
-		return (ft_printf("\n"));
+		return (-1);
 	else if (argc == 2)
 	{
 		numbers = ft_split(argv[1], ' ');

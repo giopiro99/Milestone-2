@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 12:57:39 by gpirozzi          #+#    #+#             */
-/*   Updated: 2025/03/04 12:57:42 by gpirozzi         ###   ########.fr       */
+/*   Created: 2024/11/26 18:03:24 by gpirozzi          #+#    #+#             */
+/*   Updated: 2024/11/27 16:36:36 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **dst, t_stack **src)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_stack	*push_node;
+	void	*ptr;
 
-	if (!src || !(*src))
+	if (!lst || !del)
 		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = *dst;
-	*dst = push_node;
-}
-
-void	pa(t_stack **a, t_stack **b, int flag)
-{
-	push(a, b);
-	if (flag)
-		ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b, int flag)
-{
-	push(b, a);
-	if (flag)
-		ft_printf("pb\n");
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
+	}
 }

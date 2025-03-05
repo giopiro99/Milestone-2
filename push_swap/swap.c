@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gnicolo <gnicolo@student.42firenze.it>     +#+  +:+       +#+        */
+/*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 14:29:57 by gnicolo           #+#    #+#             */
-/*   Updated: 2025/02/24 17:58:20 by gnicolo          ###   ########.fr       */
+/*   Created: 2025/03/04 12:58:06 by gpirozzi          #+#    #+#             */
+/*   Updated: 2025/03/04 12:58:08 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,30 @@ static void	swap(t_stack **head)
 	*head = second;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int flag)
 {
 	if (!a)
 		return ;
 	swap(a);
-	ft_printf("sa\n");
+	if (flag)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int flag)
 {
 	if (!b)
 		return ;
 	swap(b);
-	ft_printf("sb\n");
+	if (flag)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int flag)
 {
 	if (!a || !b)
 		return ;
 	swap(a);
 	swap(b);
-	ft_printf("ss\n");
+	if (flag)
+		ft_printf("ss\n");
 }

@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 12:57:39 by gpirozzi          #+#    #+#             */
-/*   Updated: 2025/03/04 12:57:42 by gpirozzi         ###   ########.fr       */
+/*   Created: 2024/11/22 18:10:34 by gpirozzi          #+#    #+#             */
+/*   Updated: 2024/12/02 18:08:33 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **dst, t_stack **src)
+int	ft_putstr(char *s)
 {
-	t_stack	*push_node;
+	int	i;
 
-	if (!src || !(*src))
-		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = *dst;
-	*dst = push_node;
-}
-
-void	pa(t_stack **a, t_stack **b, int flag)
-{
-	push(a, b);
-	if (flag)
-		ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b, int flag)
-{
-	push(b, a);
-	if (flag)
-		ft_printf("pb\n");
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }

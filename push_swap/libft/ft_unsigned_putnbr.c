@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_unsigned_putnbr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 12:57:39 by gpirozzi          #+#    #+#             */
-/*   Updated: 2025/03/04 12:57:42 by gpirozzi         ###   ########.fr       */
+/*   Created: 2024/12/02 12:57:20 by gpirozzi          #+#    #+#             */
+/*   Updated: 2024/12/02 16:25:12 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **dst, t_stack **src)
+int	ft_unsigned_putnbr(unsigned int n)
 {
-	t_stack	*push_node;
+	int	count;
 
-	if (!src || !(*src))
-		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = *dst;
-	*dst = push_node;
-}
-
-void	pa(t_stack **a, t_stack **b, int flag)
-{
-	push(a, b);
-	if (flag)
-		ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b, int flag)
-{
-	push(b, a);
-	if (flag)
-		ft_printf("pb\n");
+	count = 0;
+	if (n >= 10)
+		count += ft_putnbr(n / 10);
+	n = (n % 10) + 48;
+	count += write(1, &n, 1);
+	return (count);
 }

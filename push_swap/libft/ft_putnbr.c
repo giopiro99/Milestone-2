@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpirozzi <giovannipirozzi12345@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 12:57:39 by gpirozzi          #+#    #+#             */
-/*   Updated: 2025/03/04 12:57:42 by gpirozzi         ###   ########.fr       */
+/*   Created: 2024/11/22 12:41:12 by gpirozzi          #+#    #+#             */
+/*   Updated: 2024/12/02 15:12:02 by gpirozzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	push(t_stack **dst, t_stack **src)
+int	ft_putnbr(int n)
 {
-	t_stack	*push_node;
+	int	i;
 
-	if (!src || !(*src))
-		return ;
-	push_node = *src;
-	*src = (*src)->next;
-	push_node->next = *dst;
-	*dst = push_node;
-}
-
-void	pa(t_stack **a, t_stack **b, int flag)
-{
-	push(a, b);
-	if (flag)
-		ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b, int flag)
-{
-	push(b, a);
-	if (flag)
-		ft_printf("pb\n");
+	i = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+		i = 1;
+	}
+	if (n <= 2147483647)
+	{
+		if (n >= 10)
+		{
+			i += ft_putnbr(n / 10);
+		}
+		n = (n % 10) + 48;
+		i += write(1, &n, 1);
+	}
+	return (i);
 }
